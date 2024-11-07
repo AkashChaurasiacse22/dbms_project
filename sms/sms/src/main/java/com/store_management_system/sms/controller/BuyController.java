@@ -49,7 +49,7 @@ public class BuyController {
         model.addAttribute("buy", buy);
             return "buy";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Failed to buy the product from the supplier. "+e.getMessage());
+            model.addAttribute("errorMessage", "Failed to buy the product from the supplier. " );
             // model.addAttribute("buy", buy);
             model.addAttribute("currentUser", currentUser);
            return "buy";
@@ -78,7 +78,7 @@ public class BuyController {
             inventoryRepository.update(inventory);
             buyRepository.save(buy);
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Incorrect Details.."+e.getMessage());
+            model.addAttribute("errorMessage", "Incorrect Details.." );
             model.addAttribute("buy", buy);
             model.addAttribute("currentUser", currentUser);
            return "buy";
@@ -104,7 +104,7 @@ public class BuyController {
             buyRepository.deleteById(id);
             return "redirect:/supplier/buys/" + supplier.getId();
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Failed to delete. "+e.getMessage());
+            model.addAttribute("errorMessage", "Failed to delete. " );
             return "error";
         }
     }

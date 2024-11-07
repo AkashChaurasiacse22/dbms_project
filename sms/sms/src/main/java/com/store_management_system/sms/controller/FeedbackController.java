@@ -41,7 +41,7 @@ public class FeedbackController {
             model.addAttribute("feedback", feedback);
             return "createFeedback";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Unable to get create feedback page."+e.getMessage());
+            model.addAttribute("errorMessage", "Unable to get create feedback page." );
             Order order=orderRepository.findById(orderId);
             return "redirect:/customer/orders/" + order.getCustomerId();
         }
@@ -56,7 +56,7 @@ public class FeedbackController {
             Order order=orderRepository.findById(feedback.getOrderId());
             return "redirect:/customer/orders/" + order.getCustomerId();
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Unable to create Feedback "+e.getMessage());
+            model.addAttribute("errorMessage", "Unable to create Feedback " );
             model.addAttribute("feedback", feedback);
             return "createFeedback";
         }
@@ -71,7 +71,7 @@ public class FeedbackController {
             model.addAttribute("feedback", feedback);
             return "viewfeedback";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Unable to get feedback page."+e.getMessage());
+            model.addAttribute("errorMessage", "Unable to get feedback page." );
             Order order=orderRepository.findById(orderId);
             return "redirect:/customer/orders/" + order.getCustomerId();
         }
@@ -86,7 +86,7 @@ public class FeedbackController {
             feedbackRepository.save(feedback);
             return "redirect:/customer/orders/" + order.getCustomerId();
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Unable to update feedback page."+e.getMessage());
+            model.addAttribute("errorMessage", "Unable to update feedback page." );
             model.addAttribute("feedback",feedback);
             return "viewfeedback";
         }
@@ -99,7 +99,7 @@ public class FeedbackController {
         try {
             feedbackRepository.deleteByOrderId(id);
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Unable to delete."+e.getMessage());
+            model.addAttribute("errorMessage", "Unable to delete." );
         }
         Order order=orderRepository.findById(id);
         return "redirect:/customer/orders/" + order.getCustomerId();

@@ -40,7 +40,7 @@ public class ProductController {
             model.addAttribute("products",products);
             return "products";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Something went wrong. Please try again later." + e.getMessage());
+            model.addAttribute("errorMessage", "Something went wrong. Please try again later."  );
             return "products";
         }
     }
@@ -58,7 +58,7 @@ public class ProductController {
             model.addAttribute("product",product);
             return "createProduct";
         } catch (Exception e) {
-            model.addAttribute("errorMessage","Something went wrong. Please try again later." + e.getMessage());
+            model.addAttribute("errorMessage","Something went wrong. Please try again later."  );
             return "createProduct";
         }
     }
@@ -76,7 +76,7 @@ public class ProductController {
             productRepository.save(product);
             return "redirect:/products";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Something went wrong. Please try again later." + e.getMessage());
+            model.addAttribute("errorMessage", "Something went wrong. Please try again later."  );
             model.addAttribute("product", product);
             return "createProduct";
         }
@@ -95,7 +95,7 @@ public class ProductController {
             model.addAttribute("product", product);
             return "viewproduct";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Failed to show product details. " + e.getMessage());
+            model.addAttribute("errorMessage", "Failed to show product details. "  );
             
             return "viewproduct";
         }
@@ -114,7 +114,7 @@ public class ProductController {
             
             return "redirect:/view/product/{id}";
         } catch (Exception e) {
-            model.addAttribute("errorMessage","Failed to update product details: " + e.getMessage());
+            model.addAttribute("errorMessage","Failed to update product details: "  );
             model.addAttribute("product", product);
             return "viewproduct";
         }
@@ -132,7 +132,7 @@ public class ProductController {
             productRepository.deleteById(id);
             return "redirect:/products";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Failed to delete product. Please try again later." + e.getMessage());
+            model.addAttribute("errorMessage", "Failed to delete product. Please try again later."  );
             return "products";
         }
     }

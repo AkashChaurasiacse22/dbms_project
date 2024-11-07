@@ -53,7 +53,7 @@ public class OrderController {
             model.addAttribute("order", order);
             return "order";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Something went wrong. Please try again later: " + e.getMessage());
+            model.addAttribute("errorMessage", "Something went wrong. Please try again later: "  );
             model.addAttribute("currentUser", currentUser);
             return "order";
         }
@@ -92,7 +92,7 @@ public class OrderController {
             inventoryRepository.update(inventory);
             orderRepository.save(order);
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Incorrect Details.."+e.getMessage());
+            model.addAttribute("errorMessage", "Incorrect Details.." );
             model.addAttribute("order", order);
             model.addAttribute("currentUser", currentUser);
            return "order";
@@ -119,7 +119,7 @@ public class OrderController {
             inventoryRepository.update(inventory);
             orderRepository.deleteById(orderId);
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Unable to delete."+e.getMessage());
+            model.addAttribute("errorMessage", "Unable to delete." );
             return "error";
         }
         return "redirect:/customer/orders/" + customerId;

@@ -50,7 +50,7 @@ public class CustomerController {
             
             return "customers";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Error fetching all customers..."+e.getMessage());
+            model.addAttribute("errorMessage", "Error fetching all customers..." );
             model.addAttribute("count", 5);
             
             return "customers";
@@ -74,7 +74,7 @@ public class CustomerController {
             model.addAttribute("customer",customer);
             return "createCustomer";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Failed to create Customers. "+e.getMessage());
+            model.addAttribute("errorMessage", "Failed to create Customers. " );
             return "createCustomer";
         }
         
@@ -96,7 +96,7 @@ public class CustomerController {
             customerRepository.save(customer);
             return "redirect:/customers";
         } catch (Exception e) {
-            // model.addAttribute("errorMessage", "Failed to create Customers. "+e.getMessage());
+            // model.addAttribute("errorMessage", "Failed to create Customers. " );
             model.addAttribute("errorMessage", "Failed to create Customers. "+"Duplicate value of phone number or email");
             return "createCustomer";
         }
@@ -151,7 +151,7 @@ public class CustomerController {
             
             return "redirect:/view/customer/{id}";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Failed to update customer details.. "+e.getMessage());
+            model.addAttribute("errorMessage", "Failed to update customer details.. " );
             model.addAttribute("customer", customer);
             return "viewcustomer";
         }
@@ -172,7 +172,7 @@ public class CustomerController {
         }
         
         }catch(Exception e){
-            model.addAttribute("errorMessage","Failed to delete the customer."+e.getMessage());
+            model.addAttribute("errorMessage","Failed to delete the customer." );
             return "redirect:/customers";
         }
     
@@ -211,7 +211,7 @@ public class CustomerController {
             // Redirect to the main customers list page (or wherever you want)
             return "redirect:/customers"; // Redirect back to the customers list
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Failed to process payment: " + e.getMessage());
+            model.addAttribute("errorMessage", "Failed to process payment: "  );
             return "redirect:/customers"; // Redirect back to customers list with an error
         }
     }
@@ -235,7 +235,7 @@ public class CustomerController {
         }
         catch (Exception e)
         {
-            model.addAttribute("errorMessage", "Failed to show payment details: " + e.getMessage());
+            model.addAttribute("errorMessage", "Failed to show payment details: "  );
             return "redirect:/customers"; 
         }
     }
@@ -256,7 +256,7 @@ public class CustomerController {
         }
         catch (Exception e)
         {
-            model.addAttribute("errorMessage", "Failed to show customer orders: " + e.getMessage());
+            model.addAttribute("errorMessage", "Failed to show customer orders: "  );
             return "redirect:/customers"; 
         }
     }

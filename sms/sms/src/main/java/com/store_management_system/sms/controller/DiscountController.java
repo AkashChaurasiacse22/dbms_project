@@ -43,7 +43,7 @@ public class DiscountController {
             model.addAttribute("discounts", discounts);
         
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Failed to show discounts: " + e.getMessage());
+            model.addAttribute("errorMessage", "Failed to show discounts: "  );
         }
         return "discount";
     }
@@ -67,7 +67,7 @@ public class DiscountController {
             model.addAttribute("discount", discount);
             return "createDiscount";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Something went wrong. Please try again later: " + e.getMessage());
+            model.addAttribute("errorMessage", "Something went wrong. Please try again later: "  );
         
             return "redirect:/discounts";
         }
@@ -87,7 +87,7 @@ public class DiscountController {
             discountRepository.save(discount);
             return "redirect:/discounts";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Failed to create discount: " + e.getMessage());
+            model.addAttribute("errorMessage", "Failed to create discount: "  );
             model.addAttribute("discount", discount);
             List<Product> products=productRepository.findAll();
 
@@ -117,7 +117,7 @@ public class DiscountController {
             model.addAttribute("discount", discount);
             return "viewdiscount";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Failed to show discount details: " + e.getMessage());
+            model.addAttribute("errorMessage", "Failed to show discount details: "  );
         
             return "redirect:/discounts";
         }
@@ -138,7 +138,7 @@ public class DiscountController {
 
             return "redirect:/discounts";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Something Went wrong. Try agin later." + e.getMessage());
+            model.addAttribute("errorMessage", "Something Went wrong. Try agin later."  );
             model.addAttribute("discount", discount);
             List<Product> products=productRepository.findAll();
 
@@ -155,7 +155,7 @@ public class DiscountController {
         try {
             discountRepository.delete(id);
         } catch (Exception e) {
-            model.addAttribute("errorMessage","Failed to delete this discount" + e.getMessage());
+            model.addAttribute("errorMessage","Failed to delete this discount"  );
 
         }
         return "redirect:/discounts";
@@ -172,7 +172,7 @@ public class DiscountController {
             return "productdiscount";
         }
         catch (Exception e) {
-            model.addAttribute("errorMessage","Failed to get the product with this discount" + e.getMessage());
+            model.addAttribute("errorMessage","Failed to get the product with this discount"  );
             return "redirect:/discounts";
         } 
     }

@@ -46,7 +46,7 @@ public class InventoryController {
         // model.addAttribute("inventory", inventory);
         return "inventorys"; 
         } catch (Exception e) {
-           model.addAttribute("errorMessage", e.getMessage());
+           model.addAttribute("errorMessage", "failed to fetch inventory");
         //    model.addAttribute("inventory", new Inventory());
         return "inventorys"; 
         }
@@ -62,7 +62,7 @@ public class InventoryController {
             return "storeInventory";
         }
         catch (Exception e) {
-            model.addAttribute("errorMessage", e.getMessage());
+            model.addAttribute("errorMessage","Failed to fetch store inventory");
             return "inventorys"; 
         }
         
@@ -82,7 +82,7 @@ public class InventoryController {
             inventoryRepository.save(inventory);
             return "redirect:/storeinventory/" + storeId;
         } catch (Exception e) {
-            model.addAttribute("errorMessage", e.getMessage());
+            model.addAttribute("errorMessage","Failed to create inventory");
             return "redirect:/storeinventory/" + storeId;
         }
          
@@ -104,7 +104,7 @@ public class InventoryController {
         inventoryRepository.update(inventory);
         return "redirect:/storeinventory/" + storeId; 
         } catch (Exception e) {
-            model.addAttribute("errorMessage", e.getMessage());
+            model.addAttribute("errorMessage", "Error Updating the inventory");
             return "redirect:/storeinventory/" + storeId;
         }
         
@@ -123,7 +123,7 @@ public class InventoryController {
             inventoryRepository.deleteById((long)productId,(long)storeId);
             return "redirect:/storeinventory/" + storeId;
         } catch (Exception e) {
-            model.addAttribute("errorMessage", e.getMessage());
+            model.addAttribute("errorMessage","failed to delete inventory");
             return "redirect:/storeinventory/" + storeId;
         }
         

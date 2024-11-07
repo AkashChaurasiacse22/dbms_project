@@ -40,8 +40,8 @@ public class StoreController {
             List<Store> stores = storeService.findAllStores();
             model.addAttribute("stores", stores);
         } catch (Exception e) {
-            // model.addAttribute("errorMessage", "Error fetching store data: " + e.getMessage());
-            redirectAttributes.addFlashAttribute("errorMessage", "Error fetching store data" + e.getMessage());
+            // model.addAttribute("errorMessage", "Error fetching store data: "  );
+            redirectAttributes.addFlashAttribute("errorMessage", "Error fetching store data"  );
 
         }
         model.addAttribute("currentUser", currentUser);
@@ -63,8 +63,8 @@ public class StoreController {
             model.addAttribute("managers", managers);
             return "createStore";
         } catch (Exception e) {
-            // model.addAttribute("errorMessage", "Error: " + e.getMessage());
-            redirectAttributes.addFlashAttribute("errorMessage", "Something went wrong." + e.getMessage());
+            // model.addAttribute("errorMessage", "Error: "  );
+            redirectAttributes.addFlashAttribute("errorMessage", "Something went wrong."  );
 
             return "createStore";
         }
@@ -94,8 +94,8 @@ public class StoreController {
             redirectAttributes.addFlashAttribute("successMessage", "Store created successfully.");
             return "redirect:/admin/stores";
         } catch (Exception e) {
-            // model.addAttribute("errorMessage", "Creating store failed: " + e.getMessage());
-            redirectAttributes.addFlashAttribute("errorMessage", "Creating store field " + e.getMessage());
+            // model.addAttribute("errorMessage", "Creating store failed: "  );
+            redirectAttributes.addFlashAttribute("errorMessage", "Creating store field "  );
             return "createStore";
         }
     }
@@ -124,8 +124,8 @@ public class StoreController {
             }
 
         } catch (Exception e) {
-            // model.addAttribute("errorMessage", "Failed to fetch store details: " + e.getMessage());
-            redirectAttributes.addFlashAttribute("errorMessage", "Failed to fetch store details: " + e.getMessage());
+            // model.addAttribute("errorMessage", "Failed to fetch store details: "  );
+            redirectAttributes.addFlashAttribute("errorMessage", "Failed to fetch store details: "  );
             return "viewstore";
         }
         return "viewstore";
@@ -160,8 +160,8 @@ public class StoreController {
             redirectAttributes.addFlashAttribute("successMessage", "Store updated successfully.");
             return "redirect:/view/store/" + id;
         } catch (Exception e) {
-            // model.addAttribute("errorMessage", "Failed to update store: " + e.getMessage());
-            redirectAttributes.addFlashAttribute("errorMessage", "Failed to update store: " + e.getMessage());
+            // model.addAttribute("errorMessage", "Failed to update store: "  );
+            redirectAttributes.addFlashAttribute("errorMessage", "Failed to update store: "  );
             model.addAttribute("store", store);
             return "viewstore";
         }
@@ -181,8 +181,8 @@ public class StoreController {
             redirectAttributes.addFlashAttribute("successMessage", "Store deleted successfully.");
             return "redirect:/admin/stores";
         } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("errorMessage", "Failed to delete store: " + e.getMessage());
-            model.addAttribute("errorMessage", "Failed to delete store: " + e.getMessage());
+            redirectAttributes.addFlashAttribute("errorMessage", "Failed to delete store: "  );
+            model.addAttribute("errorMessage", "Failed to delete store: "  );
             return "redirect:/admin/stores";
         }
     }

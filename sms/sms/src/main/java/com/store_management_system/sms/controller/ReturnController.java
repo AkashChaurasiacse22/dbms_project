@@ -44,7 +44,7 @@ public class ReturnController {
             model.addAttribute("return1", return1);
             return "createReturn";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Unable to get create return statement page."+e.getMessage());
+            model.addAttribute("errorMessage", "Unable to get create return statement page." );
             Order order=orderRepository.findById(id);
             return "redirect:/customer/orders/" + order.getCustomerId();
         }
@@ -75,7 +75,7 @@ public class ReturnController {
             returnRepository.save(return1);
             return "redirect:/customer/orders/" + order.getCustomerId();
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Unable to create return statement "+e.getMessage());
+            model.addAttribute("errorMessage", "Unable to create return statement " );
             model.addAttribute("return1", return1);
             return "createReturn";
         }
@@ -91,7 +91,7 @@ public class ReturnController {
 
             return "viewreturn";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Unable to get return statement page."+e.getMessage());
+            model.addAttribute("errorMessage", "Unable to get return statement page." );
             Order order=orderRepository.findById(id);
             return "redirect:/customer/orders/" + order.getCustomerId();
         }
@@ -124,7 +124,7 @@ public class ReturnController {
             returnRepository.save(return1);
             return "redirect:/customer/orders/" + order.getCustomerId();
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Unable to update return statement page."+e.getMessage());
+            model.addAttribute("errorMessage", "Unable to update return statement page." );
             model.addAttribute("return1",return1);
             return "viewreturn";
         }
@@ -146,7 +146,7 @@ public class ReturnController {
 
             returnRepository.deleteByOrderId(id);
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Unable to delete."+e.getMessage());
+            model.addAttribute("errorMessage", "Unable to delete." );
         
         }
         

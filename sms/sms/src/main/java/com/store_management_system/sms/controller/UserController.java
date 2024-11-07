@@ -43,7 +43,7 @@ public class UserController {
             model.addAttribute("currentUser", currentUser);
             return "home";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", e.getMessage());
+            model.addAttribute("errorMessage", "something went wrong, please try again later");
             return "home";
         }
         
@@ -59,7 +59,7 @@ public String getAllUsers(Model model, Principal principal) {
         
         return "users"; // Make sure the users.html exists in your templates
     } catch (Exception e) {
-        model.addAttribute("errorMessage", e.getMessage());
+        model.addAttribute("errorMessage", "something went wrong, please try again later");
         return "users";
     }
 }
@@ -72,7 +72,7 @@ public String getAllUsers(Model model, Principal principal) {
             
             model.addAttribute("users", users);
         }catch(Exception e){
-            model.addAttribute("errorMessage", e.getMessage());
+            model.addAttribute("errorMessage", "something went wrong, please try again later");
         }
         
         return "users";
@@ -93,7 +93,7 @@ public String getAllUsers(Model model, Principal principal) {
             return "error/403"; 
         }
         } catch (Exception e) {
-            model.addAttribute("errorMessage",e.getMessage());
+            model.addAttribute("errorMessage","something went wrong, please try again later");
             model.addAttribute("check", false);
             return "register";
         }
@@ -116,7 +116,7 @@ public String getAllUsers(Model model, Principal principal) {
             return "error/403"; 
         }
         } catch (Exception e) {
-            model.addAttribute("errorMessage",e.getMessage());
+            model.addAttribute("errorMessage","failed to register");
             model.addAttribute("check", true);
             return "register";
         }
@@ -144,7 +144,7 @@ public String getAllUsers(Model model, Principal principal) {
             userService.saveUser(user);
             
         } catch (Exception e) {
-            model.addAttribute("errorMessage",e.getMessage());
+            model.addAttribute("errorMessage","something went wrong, please try again later");
             model.addAttribute("user", user);
             model.addAttribute("check", true);
             if(currentUser.getRoles().stream().anyMatch(role -> role.getName().equals("ADMIN"))){

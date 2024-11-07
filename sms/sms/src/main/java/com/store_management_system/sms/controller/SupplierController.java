@@ -48,7 +48,7 @@ public class SupplierController {
             model.addAttribute("suppliers",suppliers);
             return "suppliers";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", e.getMessage());
+            model.addAttribute("errorMessage", "failed to fetch suppliers");
             return "suppliers";
         }
     }
@@ -74,7 +74,7 @@ public class SupplierController {
             model.addAttribute("supplier",supplier);
             return "createSupplier";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", e.getMessage());
+            model.addAttribute("errorMessage", "something went wrong");
             return "createSupplier";
         }
         
@@ -101,7 +101,7 @@ public class SupplierController {
             supplierRepository.save(supplier);
             return "redirect:/suppliers";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", e.getMessage());
+            model.addAttribute("errorMessage", "failed to create supplier");
             return "createSupplier";
         }
     }
@@ -143,20 +143,20 @@ public class SupplierController {
             model.addAttribute("currentUser", currentUser);
             if(currentUser.getRoleId().equals(  1L) || currentUser.getRoleId().equals(2L)){
                 supplier.getEmails().removeIf(email -> email.getSupplierEmail() == null || email.getSupplierEmail().isEmpty());
-        
+                Long phone_no = supplier.getPhoneNo();
+                if(phone_no!=null && supplierRepository.findByPhoneNo(phone_no)!=null){
+                    model.addAttribute("errorMessage", "Duplicate phone number");
+                    model.addAttribute("supplier", supplier);
+                    return "createSupplier";
+                }
                 supplierRepository.save(supplier);
             }else{
                 return "error/403";
             }
-            Long phone_no = supplier.getPhoneNo();
-            if(phone_no!=null && supplierRepository.findByPhoneNo(phone_no)!=null){
-                model.addAttribute("errorMessage", "Duplicate phone number");
-                model.addAttribute("supplier", supplier);
-                return "createSupplier";
-            }
+            
             return "redirect:/view/supplier/{id}";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Failed to update supplier details.."+e.getMessage());
+            model.addAttribute("errorMessage", "Failed to update supplier details.." );
             model.addAttribute("supplier", supplier);
             return "viewsupplier";
         }
@@ -176,7 +176,7 @@ public class SupplierController {
         }
         
         }catch(Exception e){
-            model.addAttribute("errorMessage","Failed to delete the supplier."+e.getMessage());
+            model.addAttribute("errorMessage","Failed to delete the supplier." );
             return "redirect:/suppliers";
         }
     
@@ -214,7 +214,7 @@ public class SupplierController {
             // Redirect to the mainvsuppliers list page (or wherever you want)
             return "redirect:/suppliers"; // Redirect back to the suppliers list
         } catch (Exception e) {
-            model.addAttribute("errorMessage", "Failed to process payment: " + e.getMessage());
+            model.addAttribute("errorMessage", "Failed to process payment: "  );
             return "redirect:/suppliers"; // Redirect back to suppliers list with an error
         }
     }
@@ -238,7 +238,7 @@ public class SupplierController {
         }
         catch (Exception e)
         {
-            model.addAttribute("errorMessage", "Failed to show payment details: " + e.getMessage());
+            model.addAttribute("errorMessage", "Failed to show payment details: "  );
             return "redirect:/suppliers"; 
         }
     }
@@ -260,7 +260,7 @@ public class SupplierController {
         }
         catch (Exception e)
         {
-            model.addAttribute("errorMessage", "Failed to show supplier buys: " + e.getMessage());
+            model.addAttribute("errorMessage", "Failed to show supplier buys: "  );
             return "redirect:/suppliers"; 
         }
     }
