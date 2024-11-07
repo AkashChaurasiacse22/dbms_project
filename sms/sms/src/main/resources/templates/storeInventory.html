@@ -103,10 +103,10 @@
                                     <div class="d-flex align-items-center" style="margin-bottom:10px;">
                                         <form th:action="@{/update/inventory/{productId}/{storeId}(productId=${product.inventories[0].productId}, storeId=${product.inventories[0].storeId})}" method="post" class="d-inline-block updateForm ml-3" style="display: none;">
                                             <strong>Quantity:</strong> <span th:text="${product.inventories[0].quantity}"></span>
-                                            <div th:if="${currentUser.roles[0].name == 'MANAGER' || currentUser.roles[0].name=='ADMIN'}">
-                                            <input type="text" name="quantity" class="form-control form-control-sm d-inline" style="width: 80px;" required>
-                                            <button type="submit" class="btn btn-custom btn-outline-primary btn-sm">Update</button>
-                                            </div>
+                                            
+                                            <input th:if="${currentUser.roles[0].name == 'MANAGER' || currentUser.roles[0].name=='ADMIN'}" type="text" name="quantity" class="form-control form-control-sm d-inline" style="width: 80px;" required>
+                                            <button th:if="${currentUser.roles[0].name == 'MANAGER' || currentUser.roles[0].name=='ADMIN'}" type="submit" class="btn btn-custom btn-outline-primary btn-sm">Update</button>
+                                            
                                         </form>
                                     </div>
                                     <form th:action="@{/delete/inventory/{productId}/{storeId}(productId=${product.inventories[0].productId}, storeId=${product.inventories[0].storeId})}" method="post" class="d-inline">

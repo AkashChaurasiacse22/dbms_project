@@ -86,7 +86,7 @@
             <ul id="supplierList" class="list-group">
                 <li class="list-group-item" th:each="supplier : ${suppliers}">
                     <div class="d-flex justify-content-between align-items-center">
-                        <span style="font-size:18px;"><i class="fas fa-store"></i>  (Id -</i><span th:text="${supplier.id}"></span>) : <strong th:text="${supplier.name} + ' ' + ${supplier.street} + ' ' + ${supplier.city}"></strong> </span>
+                        <span style="font-size:18px;"><i class="fas fa-store"></i>  (Id -</i><span th:text="${supplier.id}"></span>) : <strong th:text="${supplier.name} + ', ' + ${supplier.street} + ', ' + ${supplier.city}"></strong> </span>
                         <span style="font-weight:bold;"><i class="fas fa-mobile-alt icon "></i><span class="phoneNo" th:text="${supplier.phoneNo}"></span></span>
                     </div>
 

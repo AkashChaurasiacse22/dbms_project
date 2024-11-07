@@ -77,7 +77,7 @@
         <h2 class="text-info text-center"><i class="fas fa-truck" style="margin-right:10px;"></i>Supplier Buys</h2>
         <hr>
 
-        <span style="font-size:18px;"><i class="fas fa-store"></i>  (Id -</i><span th:text="${supplier.id}"></span>) : <strong th:text="${supplier.name} + ' ' + ${supplier.street} + ' ' + ${supplier.city}"></strong> </span>
+        <span style="font-size:18px;"><i class="fas fa-store"></i>  (Id -</i><span th:text="${supplier.id}"></span>) : <strong th:text="${supplier.name} + ', ' + ${supplier.street} + ', ' + ${supplier.city}"></strong> </span>
         <span style="font-weight:bold; float:right;"><i class="fas fa-mobile-alt icon "></i><span class="phoneNo" th:text="${supplier.phoneNo}"></span></span>
         <hr>
         <!-- List content for supplier buys (without accordion) -->
